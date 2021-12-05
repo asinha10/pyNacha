@@ -1,11 +1,12 @@
-NACHA CCD+ ACH file generator module for python. 
-This has been tested with “CCD” batches with addenda records. Forked from carta-ach by Carta, Inc. and modified to include special charater support for Company, Bank and Supplier's Name.
+# NACHA CCD+ ACH file generator module for python. 
+## This has been tested with “CCD” batches with addenda records. 
+## Forked from carta-ach by Carta, Inc. and modified to include special charater support for Company, Bank and Supplier's Name.
 
 
 Example:
 
+```
 from pyNacha.builder import AchFile
-
 
 settings = {
     'immediate_dest': '123456789', # Your bank's routing number
@@ -18,7 +19,6 @@ settings = {
 }
 
 ach_file = AchFile('A', settings) #file Id mod
-
 
 entries = [
     {
@@ -60,11 +60,11 @@ entries = [
 ach_file.add_batch('CCD', entries, credits=True, debits=True)
 
 print(ach_file.render_to_string())
-
+```
 
 ===============================================================================================
 
-This returns the following NACHA file:
+### This returns the following NACHA file:
 
 101 123456780 1234567801409020123A094101YOUR BANK              YOUR COMPANY
 5200YOUR COMPANY                        1234567890PPDPAYROLL         140903   1123456780000001
